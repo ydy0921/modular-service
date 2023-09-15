@@ -1,0 +1,36 @@
+{
+  "name": "module-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/module.service.common.js",
+  "module": "dist/module.service.esm.js",
+  "unpkg": "dist/module.service.js",
+  "jsdelivr": "dist/module.service.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "src",
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "rollup -w -c scripts/config.js --environment TARGET:web-module-dev --sourcemap",
+    "build": "node scripts/build.js",
+    "lint": "eslint src scripts test"
+  },
+  "keywords": [
+    "module",
+    "service",
+    "axios"
+  ],
+  "author": "Yang Dingyan",
+  "license": "MIT",
+  "homepage": "",
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "rollup": "^3.29.1",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "terser": "^5.19.4",
+    "typescript": "^5.2.2"
+  }
+}
