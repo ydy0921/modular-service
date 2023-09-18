@@ -1,5 +1,7 @@
-import { AutowireService } from "./decorators";
+import { AutowiredService } from "./decorators";
+import { BaseService } from "./base.serve";
 
 export {
-  AutowireService
+  AutowiredService,
+  BaseService,
 }

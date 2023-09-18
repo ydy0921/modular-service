@@ -34,10 +34,10 @@ function buildEntry(config) {
 
   return rollup.rollup(config)
     .then((bundle) => bundle.generate(output))
-    .then(({ output: [{code}] }) => {
+    .then(async({ output: [{code}] }) => {
       if (isProd) {
         // 代码压缩
-        const minified = (banner ? banner + '\n' : '') + terser.minify(code, {
+        let minified = await terser.minify(code, {
           toplevel: true,
           output: {
             ascii_only: true
@@ -45,7 +45,8 @@ function buildEntry(config) {
           compress: {
             pure_funcs: ['makeMap']
           }
-        }).code;
+        });
+        minified = (banner ? banner + '\n' : '') + minified.code;
         return write(file, minified, true)
       } else {
         return write(file, code)

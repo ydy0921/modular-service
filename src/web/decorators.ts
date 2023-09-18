@@ -8,7 +8,7 @@ import { ServiceFactory } from "./factory";
  * @AutowiredService(UserService)
  * userService:any
  */
-export function AutowireService(serviceClass: Function) {
+export function AutowiredService(serviceClass: Function) {
   return (target: any, property: string) => {
     if (!serviceClass) {
       console.error(`${target.constructor.name}中服务定义错误！`);
